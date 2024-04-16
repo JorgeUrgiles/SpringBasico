@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <h1>Formulario de nuevos productos</h1>
+
+  <form th:object="${producto}" th:action="${accion}" method="post" >
+    <div>
+      <input type="hidden" th:field="*{id}">
+    </div>
+    <div>
+     <label>Nombre:  <input type="text" th:field="*{nombre}"></label>
+      <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+    </div>
+    <div>
+      <label>Precio:  <input type="text" th:field="*{precio}"></label>
+      <span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+    </div>
+    <div>
+      <button type="submit">Agregar</button>
+    </div>
+
+  </form>
+    <a href="/productos">volover</a>
+</div>
+
+
+</body>
+</html>
